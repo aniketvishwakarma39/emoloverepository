@@ -1,1 +1,513 @@
-<h1>Sorry {{name}}</h1>
+{% load static %}
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sorry ❤️</title>
+
+
+
+</head>
+<style>
+    *{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
+
+body{
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:
+linear-gradient(
+135deg,
+#ff8eb5,
+#ffc0cb
+);
+
+font-family:
+Arial,sans-serif;
+}
+
+.container{
+
+width:700px;
+
+max-width:90%;
+
+padding:30px;
+
+background:
+rgba(255,255,255,.2);
+
+backdrop-filter:
+blur(15px);
+
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:
+0 0 30px rgba(255,255,255,.4);
+
+position:relative;
+
+z-index:10;
+}
+
+video{
+
+width:280px;
+
+height:220px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+box-shadow:
+0 0 20px rgba(255,255,255,.6);
+}
+
+#question{
+
+margin-top:20px;
+
+font-size:40px;
+
+color:white;
+
+text-shadow:
+0 0 10px white;
+}
+
+#message{
+
+margin-top:15px;
+
+font-size:22px;
+
+color:white;
+}
+
+.buttons{
+
+margin-top:30px;
+}
+
+button{
+
+width:120px;
+
+height:50px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+margin:10px;
+
+transition:.3s;
+}
+
+#yesBtn{
+
+background:#4caf50;
+
+color:white;
+}
+
+#noBtn{
+
+background:#ff3b3b;
+
+color:white;
+
+position:relative;
+}
+
+#loveLetter{
+
+display:none;
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:
+translate(-50%,-50%);
+
+width:600px;
+
+max-width:90%;
+
+padding:40px;
+
+background:white;
+
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:
+0 0 40px pink;
+
+z-index:9999;
+}
+
+#loveLetter h2{
+
+color:#ff4d88;
+
+margin-bottom:20px;
+}
+
+#loveLetter p{
+
+font-size:22px;
+
+line-height:1.8;
+}
+
+.heart{
+
+position:fixed;
+
+top:-50px;
+
+font-size:30px;
+
+pointer-events:none;
+}
+
+@media(max-width:768px){
+
+#question{
+
+font-size:28px;
+}
+
+video{
+
+width:220px;
+
+height:180px;
+}
+
+button{
+
+width:100px;
+
+height:45px;
+}
+
+}
+</style>
+<body>
+
+<div id="hearts"></div>
+
+<div class="container">
+
+<video
+id="videoPlayer"
+autoplay
+muted
+loop
+>
+
+<source
+src="{% static 'gifs/pleasese.jpg.mp4' %}"
+type="video/mp4"
+>
+
+</video>
+
+<h1 id="question">
+
+Do You Forgive Me? 🥺
+
+</h1>
+
+<p id="message">
+
+I know I made mistakes...
+
+</p>
+
+<div class="buttons">
+
+<button id="yesBtn">
+
+Yes ❤️
+
+</button>
+
+<button id="noBtn">
+
+No 😒
+
+</button>
+
+</div>
+
+</div>
+
+<div id="loveLetter">
+
+<h2>
+
+Thank You ❤️
+
+</h2>
+
+<p>
+
+I promise I'll try to be better every day.
+Thank you for giving me another chance.
+
+❤️
+
+</p>
+
+</div>
+
+<script>const container =
+document.querySelector(
+".container"
+);
+
+const question =
+document.getElementById(
+"question"
+);
+
+const message =
+document.getElementById(
+"message"
+);
+
+const yesBtn =
+document.getElementById(
+"yesBtn"
+);
+
+const noBtn =
+document.getElementById(
+"noBtn"
+);
+
+const videoPlayer =
+document.getElementById(
+"videoPlayer"
+);
+
+const loveLetter =
+document.getElementById(
+"loveLetter"
+);
+
+let scale = 1;
+
+const msgs = [
+
+"Please maan jao 🥺",
+
+"Ek chance aur 😭",
+
+"Sorry yaar ❤️",
+
+"Galti ho gayi 😔",
+
+"Itna bhi gussa mat ho 😢",
+
+"Please ❤️",
+
+"Mujhe maaf kar do 😭",
+
+"Last chance 🥺❤️"
+
+];
+
+yesBtn.addEventListener(
+"click",
+()=>{
+
+question.innerHTML =
+"I Love You Too ❤️";
+
+message.innerHTML =
+"Thank you for forgiving me 🥺❤️";
+
+videoPlayer.innerHTML =
+`
+<source
+src="{% static 'gifs/kiss.jpg.mp4' %}"
+type="video/mp4"
+>
+`;
+
+videoPlayer.load();
+
+startHeartRain();
+
+yesBtn.style.display =
+"none";
+
+noBtn.style.display =
+"none";
+
+setTimeout(()=>{
+
+loveLetter.style.display =
+"block";
+
+},2500);
+
+}
+);
+
+noBtn.addEventListener(
+"mouseover",
+moveButton
+);
+
+function moveButton(){
+
+const rect =
+container.getBoundingClientRect();
+
+const btnWidth =
+noBtn.offsetWidth;
+
+const btnHeight =
+noBtn.offsetHeight;
+
+const x =
+Math.random() *
+(rect.width - btnWidth - 20);
+
+const y =
+Math.random() *
+(rect.height - btnHeight - 20);
+
+noBtn.style.position =
+"absolute";
+
+noBtn.style.left =
+x + "px";
+
+noBtn.style.top =
+y + "px";
+
+message.innerHTML =
+msgs[
+Math.floor(
+Math.random() *
+msgs.length
+)
+];
+
+scale += 0.08;
+
+yesBtn.style.transform =
+`scale(${scale})`;
+
+if(scale > 2){
+
+question.innerHTML =
+"Bas bhi karo 😭❤️";
+
+}
+
+if(scale > 3){
+
+question.innerHTML =
+"Ab to Yes kar do 🥺❤️";
+
+}
+
+}
+
+function startHeartRain(){
+
+const heartTimer =
+setInterval(()=>{
+
+let heart =
+document.createElement(
+"div"
+);
+
+heart.innerHTML =
+"❤️";
+
+heart.classList.add(
+"heart"
+);
+
+heart.style.left =
+Math.random()*100 +
+"vw";
+
+heart.style.fontSize =
+(
+20 +
+Math.random()*30
+) + "px";
+
+document.body.appendChild(
+heart
+);
+
+heart.animate(
+[
+{
+transform:
+"translateY(0)"
+},
+{
+transform:
+"translateY(120vh)"
+}
+],
+{
+duration:4000
+}
+);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},4000);
+
+},250);
+
+}</script>
+
+</body>
+</html>

@@ -49,7 +49,7 @@ class Surprise:
             )
 
         data = {
-
+            "type": self.type,
             "name":self.name,
 
             "message":self.message,
