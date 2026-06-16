@@ -26,19 +26,12 @@ s = Surprise(
     caption=[
 
         "The solo travel that teaches me everything ❤️",
-
         "This travel shows a different path of Bihar ❤️",
-
         "And this one is closest to heart beacause its my varanasi yarr❤️",
-
         "very best view ❤️",
-
         "Trip Together ❤️",
-
         "Fun Moments ❤️",
-
         "Always Smiling ❤️",
-
         "Forever ❤️"
     ]
 )
