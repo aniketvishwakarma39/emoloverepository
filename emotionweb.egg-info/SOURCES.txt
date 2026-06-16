@@ -1,0 +1,9 @@
+README.md
+setup.py
+emotionweb/__init__.py
+emotionweb/generator.py
+emotionweb/themes.py
+emotionweb.egg-info/PKG-INFO
+emotionweb.egg-info/SOURCES.txt
+emotionweb.egg-info/dependency_links.txt
+emotionweb.egg-info/top_level.txt

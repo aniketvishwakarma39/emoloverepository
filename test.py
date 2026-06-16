@@ -10,14 +10,17 @@ s = Surprise(
 
     images=[
 
-        "/home/kali/Desktop/hack/7.jpeg",
-        "/home/kali/Desktop/hack/8.jpeg",
-        "/home/kali/Desktop/hack/9.jpeg",
-        "/home/kali/Desktop/hack/10.jpeg",
-        "/home/kali/Desktop/hack/12.jpeg",
-        "/home/kali/Desktop/hack/13.jpeg",
-        "/home/kali/Desktop/hack/14.jpeg",
-        "/home/kali/Desktop/hack/15.jpeg"
+        r"C:\Users\DELL\Desktop\EmotionWeb\webengine\static\uploads\img7.jpeg",
+       r"C:\Users\DELL\Desktop\EmotionWeb\webengine\static\uploads\img8.jpeg",
+        r"C:\Users\DELL\Desktop\EmotionWeb\webengine\static\uploads\img6.jpeg",
+       r"C:\Users\DELL\Desktop\EmotionWeb\webengine\static\uploads\img5.jpeg",
+        r"C:\Users\DELL\Desktop\EmotionWeb\webengine\static\uploads\img4.jpeg",
+       r"C:\Users\DELL\Desktop\EmotionWeb\webengine\static\uploads\img3.jpeg",
+        r"C:\Users\DELL\Desktop\EmotionWeb\webengine\static\uploads\img2.jpeg",
+       r"C:\Users\DELL\Desktop\EmotionWeb\webengine\static\uploads\img1.jpeg",
+       
+
+       
     ],
 
     caption=[
